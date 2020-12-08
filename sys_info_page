@@ -30,7 +30,11 @@ report_home_space () {
 	return
 }
 
-cat << _EOF_
+#Create the HTML file
+touch sys_info_page.html
+
+# Create the info and put redirect it to sys_info_page.html
+cat > sys_info_page.html << _EOF_
 <html>
 	<head>
 		<title>$TITLE</title>
@@ -44,3 +48,9 @@ cat << _EOF_
 	</body>
 </html>
 _EOF_
+
+#Open the HTML file in Chrome
+google-chrome sys_info_page.html
+
+#Delete the HTML Document
+rm sys_info_page.html
